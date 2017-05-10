@@ -4,8 +4,6 @@
         <meta charset="UTF-8">
         <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
         <style>
-
-
             body {
                 background-color: antiquewhite;
                 margin:auto;
@@ -14,24 +12,45 @@
             p {
                 text-align: center;
                 font-size: xx-large;
-                position: relative;
-                top: 40%;
-                transform: translateY(-50%);
                 font-family: 'Kaushan Script', cursive;
             }
+            
+            .outer {
+                display: table;
+                position: absolute;
+                height: 100%;
+                width: 100%;
+            }
+
+            .middle {
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+            .inner {
+                margin-left: auto;
+                margin-right: auto; 
+                width: /*whatever width you want*/;
+            }
         </style>
-        <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
     </head>
 
     <body>
+        <div class="outer">
+            <div class="middle">
+                <div class="inner">
+                    <p id="timeKanji"></p>
+                    <p id="timeHiragana"></p>
+                    <p id="dayKanji"></p>
+                    <p id="dayHiragana"></p>
+                    <p><input onclick='tts();' type='button' value='🔊 Play' /></p>
 
-        <p id="timeKanji"></p>
-        <p id="timeHiragana"></p>
-        <p id="dayKanji"></p>
-        <p id="dayHiragana"></p>
-<p><input onclick='tts();' type='button' value='🔊 Play' /></p>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
+
 <script type="text/javascript">    
             
     /** arrays de valores en Kanji **/
