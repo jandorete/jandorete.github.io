@@ -2,8 +2,11 @@
     <head>
         <title>Page Title</title>
         <meta charset="UTF-8">
-        <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
         <style>
+            @font-face {
+                font-family: Shirokuma;
+                src: url(shirokuma.ttf);
+            }
             body {
                 background-color: antiquewhite;
                 margin:auto;
@@ -12,7 +15,7 @@
             p {
                 text-align: center;
                 font-size: xx-large;
-                font-family: 'Kaushan Script', cursive;
+/*                font-family: 'Shirokuma';*/
             }
             
             .outer {
@@ -93,7 +96,7 @@
             var fraseMesHiragana = " " + semanaHiragana[dayWeek] + ", " + numerosHiragana[dayMonth] + " " + mesesHiragana[month];
             document.getElementById("dayHiragana").innerHTML = fraseMesHiragana;            
             
-        },100);
+        },500);
     };
     
     function tts() {
