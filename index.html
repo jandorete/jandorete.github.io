@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <title>Page Title</title>
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+        <style>
+
+
+            body {
+                background-color: antiquewhite;
+                margin:auto;
+            }
+            
+            p {
+                text-align: center;
+                font-size: xx-large;
+                position: relative;
+                top: 40%;
+                transform: translateY(-50%);
+                font-family: 'Kaushan Script', cursive;
+            }
+        </style>
+        <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+    </head>
+
+    <body>
+
+        <p id="timeKanji"></p>
+        <p id="timeHiragana"></p>
+        <p id="dayKanji"></p>
+        <p id="dayHiragana"></p>
+<p><input onclick='tts();' type='button' value='🔊 Play' /></p>
+    </body>
+</html>
+<script type="text/javascript">    
+            
+    /** arrays de valores en Kanji **/
+    var numerosKanji = ['〇','一','二','三','四','五','六','七','八','九','十','十一','十二','十三','十四','十五','十六','十七','十八','十九','二十','二十一','二十二','二十三','二十四','二十五','二十六','二十七','二十八','二十九','三十','十一','三十二', '三十三', '三十四', '三十五', '三十六', '三十七', '三十八','三十九','四十','四十一','四十二','四十三','四十四','四十五','四十五','四十六','四十七','四十八','四十九','五十','五十一','五十二','五十三','五十四','五十五','五十六','五十七','五十八','五十九'];
+    var semanaKanji = ['日曜日','月曜日','火曜日','水曜日','木曜日','金曜日','土曜','日曜日'];
+    var mesesKanji = ['十二月','一月','二月','三月', '四月', '五月','六月','七月','八月','九月','十月','十一月','十二月'];
+    
+    /** arrays de valores en hiragana **/
+    var numerosHiragana = ['','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''];
+    var semanaHiragana = ['','','','','','','',''];
+    var mesesHiragana = ['','','','', '', '','','','','','','',''];
+    
+    window.onload = function() {
+        setInterval(function() {
+            
+            /** generar la hora actual **/
+            
+            var d = new Date();
+            var hour = d.getHours();
+            var minutes = d.getMinutes();
+            var seconds = d.getSeconds();
+            var dayWeek = d.getDay();
+            var dayMonth = d.getDate();
+            var month = d.getMonth();
+            var year = d.getYear();
+            
+            /** modificar html para mostrar la hora en kanji **/
+            
+            var fraseHoraKanji = "今は " + numerosKanji[hour] + " 時間 " + numerosKanji[minutes] + "分" + numerosKanji[seconds] + " 秒";            
+            document.getElementById("timeKanji").innerHTML = fraseHoraKanji;
+           
+            var fraseMesKanji = "今日は " + semanaKanji[dayWeek] + ", " + numerosKanji[dayMonth] + " " + mesesKanji[month];
+            document.getElementById("dayKanji").innerHTML = fraseMesKanji;           
+            
+            /** modificar html para mostrar la hora en hiragana **/
+            
+            var fraseHoraHiragana = " " + numerosHiragana[hour] + "  " + numerosHiragana[minutes] + "" + numerosHiragana[seconds] + " ";            
+            document.getElementById("timeHiragana").innerHTML = fraseHoraHiragana;
+           
+            var fraseMesHiragana = " " + semanaHiragana[dayWeek] + ", " + numerosHiragana[dayMonth] + " " + mesesHiragana[month];
+            document.getElementById("dayHiragana").innerHTML = fraseMesHiragana;            
+            
+        },1000);
+    };
+    
+    function tts() {
+        var tts = new SpeechSynthesisUtterance();
+        tts.text = document.getElementById("timeKanji").innerHTML + "; " + document.getElementById("dayKanji").innerHTML;
+        tts.lang = 'ja-JP';
+         
+        speechSynthesis.speak(tts);
+    }
+</script>
