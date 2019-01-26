@@ -1,0 +1,11 @@
+{
+  "profile": {
+    "introduction": "Soy un desarrollador web de Alicante.",
+    "findMeAt": "Puedes encontrarme a través de:",
+    "cvTitle": "Descarga mi currículum",
+    "cvText": "Currículum"
+  },
+  "skills": {
+    "title": "Tecnologías"
+  }
+}
