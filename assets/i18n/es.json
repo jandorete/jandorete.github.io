@@ -1,11 +1,20 @@
 {
-  "profile": {
+  "profileSection": {
     "introduction": "Soy un desarrollador web de Alicante.",
     "findMeAt": "Puedes encontrarme a través de:",
     "cvTitle": "Descarga mi currículum",
     "cvText": "Currículum"
   },
-  "skills": {
+  "skillsSection": {
     "title": "Tecnologías"
+  },
+  "projectsSection": {
+    "title": "Proyectos de muestra",
+    "projects": [
+      {
+        "name": "Viajeuropa",
+        "description": "Agencia de viajes sorpresa con destinos en toda Europa."
+      }
+    ]
   }
 }

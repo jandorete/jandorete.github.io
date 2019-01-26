@@ -1,11 +1,20 @@
 {
-  "profile": {
+  "profileSection": {
     "introduction": "I'm a full stack web developer from Alicante, Spain.",
     "findMeAt": "You can find me at:",
     "cvTitle": "Download my resume",
     "cvText": "Resume"
   },
-  "skills": {
+  "skillsSection": {
     "title": "Skills & Technologies"
+  },
+  "projectsSection": {
+    "title": "Sample projects",
+    "projects": [
+      {
+        "name": "Viajeuropa",
+        "description": "Online travel agency with surprise destinations across Europe."
+      }
+    ]
   }
 }
