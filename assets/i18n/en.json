@@ -2,6 +2,8 @@
   "profileSection": {
     "introduction": "I'm a full stack web developer from Alicante, Spain.",
     "findMeAt": "You can find me at:",
+    "emailTitle": "Send me an email",
+    "emailText": "Email",
     "cvTitle": "Download my resume",
     "cvText": "Resume"
   },

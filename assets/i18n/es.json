@@ -2,6 +2,8 @@
   "profileSection": {
     "introduction": "Soy un desarrollador web de Alicante.",
     "findMeAt": "Puedes encontrarme a través de:",
+    "emailTitle": "Envíame un correo electrónico",
+    "emailText": "Correo",
     "cvTitle": "Descarga mi currículum",
     "cvText": "Currículum"
   },
