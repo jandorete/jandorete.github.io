@@ -269,16 +269,13 @@ MIT
 @ngx-translate/http-loader
 MIT
 
+@ngx-translate/core
+MIT
+
 @angular/common
 MIT
 
 @angular/platform-browser
-MIT
-
-@angular/router
-MIT
-
-@ngx-translate/core
 MIT
 
 zone.js

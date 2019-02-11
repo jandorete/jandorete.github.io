@@ -2,10 +2,22 @@
   "profileSection": {
     "introduction": "I'm a full stack web developer from Alicante, Spain.",
     "findMeAt": "You can find me at:",
-    "emailTitle": "Send me an email",
-    "emailText": "Email",
-    "cvTitle": "Download my resume",
-    "cvText": "Resume"
+    "links": [
+      {
+        "text": "Email",
+        "title": "Send me an email"
+      }, {
+        "text": "LinkedIn",
+        "title": "LinkedIn"
+      }, {
+        "text": "GitHub",
+        "title": "GitHub"
+      }, {
+        "text": "Resume",
+        "title": "Download my resume",
+        "link": "https://www.visualcv.com/alejandroav-en/pdf/"
+      }
+    ]
   },
   "skillsSection": {
     "title": "Skills & Technologies"

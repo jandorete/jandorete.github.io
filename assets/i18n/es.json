@@ -2,10 +2,22 @@
   "profileSection": {
     "introduction": "Soy un desarrollador web de Alicante.",
     "findMeAt": "Puedes encontrarme a través de:",
-    "emailTitle": "Envíame un correo electrónico",
-    "emailText": "Correo",
-    "cvTitle": "Descarga mi currículum",
-    "cvText": "Currículum"
+    "links": [
+      {
+        "text": "Correo",
+        "title": "Envíame un correo electrónico"
+      }, {
+        "text": "LinkedIn",
+        "title": "LinkedIn"
+      }, {
+        "text": "GitHub",
+        "title": "GitHub"
+      }, {
+        "text": "Currículum",
+        "title": "Descarga mi currículum",
+        "link": "https://www.visualcv.com/alejandroav-es/pdf/"
+      }
+    ]
   },
   "skillsSection": {
     "title": "Tecnologías"
