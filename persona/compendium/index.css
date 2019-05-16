@@ -1,0 +1,80 @@
+@font-face {
+    font-family: Persona;
+    src: url(Persona.ttf) format('truetype');
+}
+
+body {
+    background-color: #FF0103;
+    font-family: Persona;
+}
+
+#persona_template {
+    display: none;
+}
+
+#persona_list {
+    margin-top: 50px;
+    padding: 0;
+    display: grid;
+    width: 100%;
+    justify-items: center;
+}
+
+.persona {
+    list-style: none;
+    width: 100%;
+}
+
+.persona_container {
+    width: 100%;
+    padding: 25px;
+    background-color: black;
+    width: 75%;
+    margin: auto;
+    -webkit-clip-path: polygon(0 5%, 93% 0, 100% 93%, 6% 100%);
+    clip-path: polygon(0 5%, 93% 0, 100% 93%, 6% 100%);
+}
+
+.persona img {
+    object-fit: contain;
+    height: 250px;
+    width: 100%;
+}
+
+.persona h5 {
+    text-align: center;
+    font-size: 1.5em;
+    color: white;
+    width: fit-content;
+    margin: 25px auto 0 auto;
+    background-color: black;
+    z-index: 2;
+}
+
+.persona a:link, a:hover, a:visited {
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 559px) {
+    #persona_list {
+        grid-template-columns: 100%;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    #persona_list {
+        grid-template-columns: 50% 50%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    #persona_list {
+        grid-template-columns: 33% 33% 33%;
+    }
+}
+
+@media only screen and (min-width: 1800px) {
+    #persona_list {
+        grid-template-columns: 25% 25% 25% 25%;
+    }
+}
