@@ -33,7 +33,9 @@ function populateList(items) {
             itemNode.querySelector('#persona_link').setAttribute('id', '');
 
             if (items[k].thumbnail) {
-                itemNode.querySelector('#persona_image').setAttribute('src', items[k].thumbnail.split(".png")[0] + ".png");
+                var url = items[k].thumbnail.split(".");
+                url = url[0] + "." + url[1] + "." + url[2] + "." + url[3] + "." + url[4].split("/")[0];
+                itemNode.querySelector('#persona_image').setAttribute('src', url);
                 // itemNode.querySelector('#persona_image').setAttribute('src', 'https://via.placeholder.com/999');
                 itemNode.querySelector('#persona_image').setAttribute('id', '');
             }
