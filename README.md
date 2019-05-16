@@ -1,7 +1,7 @@
 # alejandroav.github.io
 My portfolio and some practice apps.
 
-# /persona/ompendium
+# /persona/compendium
 A small js practice app that fetches data from Wikia APIs.
 
 # /recipeBook
