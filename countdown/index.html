@@ -59,7 +59,7 @@
             console.log("Fin: " + endTime);
             console.log("Diferencia con inicio: " + startDiff);
 
-            var percentage = Math.round((startDiff / diff * 100) * 10) / 10;
+            var percentage = Math.round((startDiff / diff * 100) * 100) / 100;
             console.log(percentage + "%");
             document.getElementById('prog-bar').value = percentage;
             document.getElementById('prog-display').innerHTML = percentage + "%";
