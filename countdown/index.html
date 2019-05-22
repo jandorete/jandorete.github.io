@@ -2,63 +2,74 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-        <style>
-            progress {
-                width: 100%;
-            }
-        </style>
-    </head>
-    <body>
-        <input id="start" type="time" onchange="setTimes()" value="07:45" hidden>
-        <input id="end" type="time" onchange="setTimes()" value="17:00" hidden>
-        <progress id="prog" max="100"></progress>
-        
-        <script>
-            var start = null;
-            var end = null;
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
 
-            function setTimes() {
-                start = document.getElementById('start').value;
-                end = document.getElementById('end').value;
-            }
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <style>
+        progress {
+            width: 100%;
+        }
 
-            function updateProgress() {
-                var startTime = new Date();
-                startTime.setHours(start.split(':')[0], start.split(':')[1], 0);
-                startTime = startTime.getTime();
+        p {
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+        }
+    </style>
+</head>
 
-                var endTime = new Date();
-                endTime.setHours(end.split(':')[0], end.split(':')[1], 0);
-                endTime = endTime.getTime();
+<body>
+    <input id="start" type="time" onchange="setTimes()" value="07:45" hidden>
+    <input id="end" type="time" onchange="setTimes()" value="17:00" hidden>
+    <p id="prog-display"></p>
+    <progress id="prog-bar" max="100"></progress>
 
-                var diff = endTime - startTime;
-                var now = new Date().getTime();
-                var startDiff = now - startTime;
+    <script>
+        var start = null;
+        var end = null;
 
-                console.log('');
-                console.log("Ahora: " + now);
-                console.log("Inicio: " + startTime);
-                console.log("Fin: " + endTime);
-                console.log("Diferencia con inicio: " + startDiff);
+        function setTimes() {
+            start = document.getElementById('start').value;
+            end = document.getElementById('end').value;
+        }
 
-                var percentage = Math.round((startDiff / diff * 100) * 10) / 10;
-                console.log(percentage + "%");
-                document.getElementById('prog').value = percentage;
-            }
+        function updateProgress() {
+            var startTime = new Date();
+            startTime.setHours(start.split(':')[0], start.split(':')[1], 0);
+            startTime = startTime.getTime();
 
-            setTimes();
-            updateProgress();
-            
-            setInterval(updateProgress, 1000);
+            var endTime = new Date();
+            endTime.setHours(end.split(':')[0], end.split(':')[1], 0);
+            endTime = endTime.getTime();
 
-        </script>
-    </body>
+            var diff = endTime - startTime;
+            var now = new Date().getTime();
+            var startDiff = now - startTime;
+
+            console.log('');
+            console.log("Ahora: " + now);
+            console.log("Inicio: " + startTime);
+            console.log("Fin: " + endTime);
+            console.log("Diferencia con inicio: " + startDiff);
+
+            var percentage = Math.round((startDiff / diff * 100) * 10) / 10;
+            console.log(percentage + "%");
+            document.getElementById('prog-bar').value = percentage;
+            document.getElementById('prog-display').innerHTML = percentage + "%";
+        }
+
+        setTimes();
+        updateProgress();
+
+        setInterval(updateProgress, 1000);
+    </script>
+</body>
+
 </html>
