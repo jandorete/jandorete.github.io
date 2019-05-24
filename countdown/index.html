@@ -37,19 +37,21 @@
 
 <body background="https://picsum.photos/1920/1080">
     <section>
-        <input id="start" type="time" onchange="setTimes()" value="07:45" hidden>
-        <input id="end" type="time" onchange="setTimes()" value="17:00" hidden>
         <p id="prog-display"></p>
         <progress id="prog-bar" max="100"></progress>
     </section>
 
     <script>
+        var startHours = [null, "07:45", "07:45", "07:45", "07:45", "07:45", null];
+        var endHours = [null, "17:00", "17:00", "17:00", "17:00", "14:00", null];
         var start = null;
         var end = null;
 
         function setTimes() {
-            start = document.getElementById('start').value;
-            end = document.getElementById('end').value;
+            var date = new Date();
+            start = startHours[date.getDay()];
+            end = endHours[date.getDay()];
+            console.log(start);
         }
 
         function updateProgress() {
