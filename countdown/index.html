@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js">
-<!--<![endif]-->
 
 <head>
     <meta charset="utf-8">
@@ -12,7 +7,7 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
+    <script src="moment.min.js"></script>
     <style>
         progress {
             width: 100%;
@@ -21,67 +16,62 @@
         p {
             font-family: 'Courier New', Courier, monospace;
             text-align: center;
+            font-size: 0.8em;
         }
 
         section {
             background-color: white;
             width: 25%;
             padding: 50px;
-            border-radius: 25px;
+            border-radius: 0 25px 0 0;
             position: absolute;
-            bottom: 25px;
-            left: 25px;
+            bottom: 0;
+            left: 0;
         }
     </style>
 </head>
 
 <body background="https://picsum.photos/1920/1080">
     <section>
-        <p id="prog-display"></p>
-        <progress id="prog-bar" max="100"></progress>
+        <p id="prog-display-day"></p>
+        <progress id="prog-bar-day" max="100"></progress>
+        <p id="prog-display-week"></p>
+        <progress id="prog-bar-week" max="100"></progress>
     </section>
-
     <script>
-        var startHours = [null, "07:45", "07:45", "07:45", "07:45", "07:45", null];
-        var endHours = [null, "17:00", "17:00", "17:00", "17:00", "14:00", null];
-        var start = null;
-        var end = null;
+        let startHours = [null, "07:45", "07:45", "07:45", "07:45", "07:45", null];
+        let endHours = [null, "17:00", "17:00", "17:00", "17:00", "14:00", null];
+        let MONDAY = 1;
+        let FRIDAY = 5;
+        var currentDayDiff;
+        var percentageDay;
+        var currentWeekDiff;
+        var percentageWeek;
 
-        function setTimes() {
-            var date = new Date();
-            start = startHours[date.getDay()];
-            end = endHours[date.getDay()];
-            console.log(start);
-        }
+        let currentDayStart = moment(startHours[moment().day()], "hh:mm");
+        let currentDayEnd = moment(endHours[moment().day()], "hh:mm");
+
+        let weekStart = moment(startHours[MONDAY], "hh:mm");
+        weekStart.day(MONDAY);
+        let weekEnd = moment(endHours[FRIDAY], "hh:mm");
+        weekEnd.day(FRIDAY);
+
+        let dayDiff = currentDayEnd - currentDayStart;
+        let weekDiff = weekEnd - weekStart;
 
         function updateProgress() {
-            var startTime = new Date();
-            startTime.setHours(start.split(':')[0], start.split(':')[1], 0);
-            startTime = startTime.getTime();
+            currentDayDiff = moment() - currentDayStart;
+            percentageDay = Math.round((currentDayDiff / dayDiff * 100) * 100) / 100;
+            document.getElementById('prog-bar-day').value = percentageDay;
+            document.getElementById('prog-display-day').innerHTML = percentageDay + "%";
 
-            var endTime = new Date();
-            endTime.setHours(end.split(':')[0], end.split(':')[1], 0);
-            endTime = endTime.getTime();
-
-            var diff = endTime - startTime;
-            var now = new Date().getTime();
-            var startDiff = now - startTime;
-
-            console.log('');
-            console.log("Ahora: " + now);
-            console.log("Inicio: " + startTime);
-            console.log("Fin: " + endTime);
-            console.log("Diferencia con inicio: " + startDiff);
-
-            var percentage = Math.round((startDiff / diff * 100) * 100) / 100;
-            console.log(percentage + "%");
-            document.getElementById('prog-bar').value = percentage;
-            document.getElementById('prog-display').innerHTML = percentage + "%";
+            currentWeekDiff = moment() - weekStart;
+            percentageWeek = Math.round((currentWeekDiff / weekDiff * 100) * 100) / 100;
+            document.getElementById('prog-bar-week').value = percentageWeek;
+            document.getElementById('prog-display-week').innerHTML = percentageWeek + "%";
         }
 
-        setTimes();
         updateProgress();
-
         setInterval(updateProgress, 1000);
     </script>
 </body>
