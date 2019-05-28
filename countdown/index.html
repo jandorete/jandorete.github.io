@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html class="no-js">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,7 +29,6 @@
         }
     </style>
 </head>
-
 <body background="https://picsum.photos/1920/1080">
     <section>
         <p id="prog-display-day"></p>
@@ -51,10 +49,8 @@
         let currentDayStart = moment(startHours[moment().day()], "hh:mm");
         let currentDayEnd = moment(endHours[moment().day()], "hh:mm");
 
-        let weekStart = moment(startHours[MONDAY], "hh:mm");
-        weekStart.day(MONDAY);
-        let weekEnd = moment(endHours[FRIDAY], "hh:mm");
-        weekEnd.day(FRIDAY);
+        let weekStart = moment(startHours[MONDAY], "hh:mm").day(MONDAY);
+        let weekEnd = moment(endHours[FRIDAY], "hh:mm").day(FRIDAY);
 
         let dayDiff = currentDayEnd - currentDayStart;
         let weekDiff = weekEnd - weekStart;
@@ -75,5 +71,4 @@
         setInterval(updateProgress, 1000);
     </script>
 </body>
-
 </html>
