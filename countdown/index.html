@@ -35,6 +35,8 @@
         <progress id="prog-bar-day" max="100"></progress>
         <p id="prog-display-week"></p>
         <progress id="prog-bar-week" max="100"></progress>
+        <p id="prog-display-month"></p>
+        <progress id="prog-bar-month" max="100"></progress>
     </section>
     <script>
         var queryDict = {}
@@ -42,6 +44,11 @@
         if (queryDict.week != 'on') {
             document.getElementById('prog-display-week').style = 'display: none';
             document.getElementById('prog-bar-week').style = 'display: none';
+        }
+
+        if (queryDict.month != 'on') {
+            document.getElementById('prog-display-month').style = 'display: none';
+            document.getElementById('prog-bar-month').style = 'display: none';
         }
 
         let startHours = [null, "08:00", "08:00", "08:00", "08:00", "08:00", null];
@@ -59,19 +66,30 @@
         let weekStart = moment(startHours[MONDAY], "hh:mm").day(MONDAY);
         let weekEnd = moment(endHours[FRIDAY], "hh:mm").day(FRIDAY);
 
+        let monthStart = moment().startOf('month');
+        let monthEnd = moment().endOf('month');
+
         let dayDiff = currentDayEnd - currentDayStart;
         let weekDiff = weekEnd - weekStart;
+        let monthDiff = monthEnd - monthStart;
 
         function updateProgress() {
             currentDayDiff = moment() - currentDayStart;
             percentageDay = Math.round((currentDayDiff / dayDiff * 100) * 100) / 100;
             document.getElementById('prog-bar-day').value = percentageDay;
-            document.getElementById('prog-display-day').innerHTML = percentageDay + "%";
+            document.getElementById('prog-display-day').innerHTML = percentageDay + "% of workday";
 
             currentWeekDiff = moment() - weekStart;
             percentageWeek = Math.round((currentWeekDiff / weekDiff * 100) * 100) / 100;
             document.getElementById('prog-bar-week').value = percentageWeek;
-            document.getElementById('prog-display-week').innerHTML = percentageWeek + "%";
+            document.getElementById('prog-display-week').innerHTML = percentageWeek + "% of workweek";
+
+            currentMonthDiff = moment() - monthStart;
+            percentageMonth = Math.round((currentMonthDiff / monthDiff * 100) * 100) / 100;
+            document.getElementById('prog-bar-month').value = percentageMonth;
+            document.getElementById('prog-display-month').innerHTML = percentageMonth + "% of month";
+
+            currentMonthDiff = moment() - monthStart;
         }
 
         updateProgress();
