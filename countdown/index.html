@@ -37,6 +37,13 @@
         <progress id="prog-bar-week" max="100"></progress>
     </section>
     <script>
+        var queryDict = {}
+        location.search.substr(1).split("&").forEach(function(item) {queryDict[item.split("=")[0]] = item.split("=")[1]});
+        if (queryDict.week != 'on') {
+            document.getElementById('prog-display-week').style = 'display: none';
+            document.getElementById('prog-bar-week').style = 'display: none';
+        }
+
         let startHours = [null, "08:00", "08:00", "08:00", "08:00", "08:00", null];
         let endHours = [null, "17:00", "17:00", "17:00", "17:00", "14:00", null];
         let MONDAY = 1;
