@@ -77,7 +77,7 @@
             currentDayDiff = moment() - currentDayStart;
             percentageDay = Math.round((currentDayDiff / dayDiff * 100) * 100) / 100;
             document.getElementById('prog-bar-day').value = percentageDay;
-            document.getElementById('prog-display-day').innerHTML = percentageDay + "% of workday";
+            document.getElementById('prog-display-day').innerHTML = percentageDay + "% of working day";
 
             currentWeekDiff = moment() - weekStart;
             percentageWeek = Math.round((currentWeekDiff / weekDiff * 100) * 100) / 100;
