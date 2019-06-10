@@ -44,9 +44,7 @@
         if (queryDict.week != 'on') {
             document.getElementById('prog-display-week').style = 'display: none';
             document.getElementById('prog-bar-week').style = 'display: none';
-        }
-
-        if (queryDict.month != 'on') {
+        } if (queryDict.month != 'on') {
             document.getElementById('prog-display-month').style = 'display: none';
             document.getElementById('prog-bar-month').style = 'display: none';
         }
@@ -56,9 +54,11 @@
         let MONDAY = 1;
         let FRIDAY = 5;
         var currentDayDiff;
-        var percentageDay;
         var currentWeekDiff;
+        var currentMonthDiff;
+        var percentageDay;
         var percentageWeek;
+        var percentageMonth;
 
         let currentDayStart = moment(startHours[moment().day()], "hh:mm");
         let currentDayEnd = moment(endHours[moment().day()], "hh:mm");
@@ -88,8 +88,6 @@
             percentageMonth = Math.round((currentMonthDiff / monthDiff * 100) * 100) / 100;
             document.getElementById('prog-bar-month').value = percentageMonth;
             document.getElementById('prog-display-month').innerHTML = percentageMonth + "% of month";
-
-            currentMonthDiff = moment() - monthStart;
         }
 
         updateProgress();
