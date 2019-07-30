@@ -1,11 +1,17 @@
+@font-face {
+    font-family: 'JupiterProRegular';
+    src: url('JupiterProRegular.otf') format('opentype');
+}
+
 body {
 	background-color: #1e1e1e;
+	font-family: 'JupiterProRegular';
 }
 
 .char-container {
 	display: grid;
-	grid-template-columns: 25% 75%;
-	width: 250px;
+	grid-template-columns: 20% 80%;
+	width: 33.33vw;
 	margin: auto;
 	height: 10%;
 	margin-top: 45vh;
@@ -13,9 +19,20 @@ body {
 	background-color: white;
 	border-radius: 10px;
 	align-items: center;
+	text-align: left;
+}
+
+.avatar-container {
+	text-align: center;
+	padding: 10px;
 }
 
 .char-container img {
 	border-radius: 10px;
-	height: 5vh;
+	width: 100%;
+	height: auto;
+}
+
+.level {
+	font-size: 1.33em;
 }
