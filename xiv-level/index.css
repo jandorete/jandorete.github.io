@@ -1,0 +1,21 @@
+body {
+	background-color: #1e1e1e;
+}
+
+.char-container {
+	display: grid;
+	grid-template-columns: 25% 75%;
+	width: 250px;
+	margin: auto;
+	height: 10%;
+	margin-top: 45vh;
+	padding: 10px;
+	background-color: white;
+	border-radius: 10px;
+	align-items: center;
+}
+
+.char-container img {
+	border-radius: 10px;
+	height: 5vh;
+}
