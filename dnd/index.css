@@ -1,0 +1,36 @@
+body {
+	background-color: antiquewhite;
+	font-family: 'Times New Roman', Times, serif;
+}
+
+.main {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 300px;
+	font-size: 1.2em;
+	line-height: 1.2em;
+}
+
+.stats, .character {
+	border: 1px solid gray;
+	padding: 0.5em;
+}
+
+.stats>div, .character {
+	display: grid;
+	grid-template-columns: 33.33% 33.33% 33.33%;
+}
+
+.stat-value {
+	text-align: center;
+}
+
+.stat-modifier {
+	text-align: right;
+}
+
+.stat-modifier>span {
+	padding: 0 5px 0 5px;
+}
