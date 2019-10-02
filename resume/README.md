@@ -1,0 +1,1 @@
+Resume json file for https://latexresu.me

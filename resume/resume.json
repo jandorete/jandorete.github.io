@@ -1,0 +1,152 @@
+{
+  "selectedTemplate": 1,
+  "headings": {
+    "skills": "Conocimientos",
+    "projects": "",
+	"awards": "",
+	"education": "Estudios",
+	"Experience": "Experiencia laboral"
+  },
+  "basics": {
+    "email": "alejandroalarcon93@gmail.com",
+    "phone": "662158565",
+    "name": "Alejandro Alarcón Villena",
+    "website": "https://www.linkedin.com/in/alejandroalarcon/"
+  },
+  "skills": [
+    {
+      "name": "Experimentado en",
+      "level": "",
+      "keywords": [
+		"PHP", "JavaScript", "Java (Android nativo)", "SQL"
+      ]
+    },
+    {
+      "keywords": [
+		"Angular", "Node.js", "Java (back end)", "C++", "Oracle"
+      ],
+      "name": "También me manejo con"
+    },
+    {
+      "keywords": [
+        "Swift", "Xcode", ".NET", "MongoDB"
+      ],
+      "name": "Conozco algo de"
+    }
+  ],
+  "work": [
+    {
+      "location": "Petrer, Alicante",
+      "position": "Desarrollador web full stack",
+      "website": "",
+      "startDate": "Febrero 2019",
+      "endDate": "Actualidad",
+      "highlights": [
+        "Diseño, desarrollo y mantenimiento de sitios web y herramientas de e-commerce.",
+        "Comunicación con APIs de eBay, Amazon, AliExpress, Cdiscount",
+        "Tecnologías principales: PHP, JavaScript, jQuery, MySQL, Git"
+      ],
+      "company": "OcioDual"
+    },
+    {
+      "location": "Pamplona",
+      "position": "Desarrollador C++",
+      "website": "",
+      "startDate": "Enero 2018",
+      "endDate": "Julio 2018",
+      "highlights": [
+        "Diseño, desarrollo y mantenimiento de videojuegos clínicos para Windows.",
+        "Tecnologías principales: Visual C++, Lua, Perforce"
+      ],
+      "company": "Davalor Salud"
+    },
+    {
+      "location": "Alicante",
+      "position": "Desarrollador de aplicaciones",
+      "website": "",
+      "startDate": "Enero 2017",
+      "endDate": "Diciembre 2017",
+      "highlights": [
+        "Diseño, desarrollo y mantenimiento de aplicaciones Android, web y APIs.",
+        "Tecnologías principales: Android, Java, PHP, JavaScript, jQuery, MySQL, Git"
+      ],
+      "company": "Xpro Developers"
+    },
+    {
+      "location": "Alicante",
+      "position": "Centers Technician",
+      "website": "",
+      "startDate": "Enero 2014",
+      "endDate": "Septiembre 2014",
+      "highlights": [
+        "Desarrollo y mantenimiento de sistemas informáticos para seguros.",
+        "Tecnologías principales: PL/SQL, Oracle DB, Oracle Forms, Oracle Developer"
+      ],
+      "company": "everis"
+    },
+    {
+      "location": "Elda, Alicante",
+      "position": "Desarrollador web junior",
+      "website": "",
+      "startDate": "Abril 2013",
+      "endDate": "Junio 2013",
+      "highlights": [
+        "Desarrollo y mantenimiento de sitios web.",
+        "Tecnologías principales: PHP, JavaScript, jQuery, MySQL"
+      ],
+      "company": "Adora Media"
+    },
+    {
+      "highlights": [
+        ""
+      ]
+    }
+  ],
+  "education": [
+    {
+      "location": "Petrer, Alicante",
+      "startDate": "Septiembre 2011",
+      "endDate": "Junio 2013",
+      "gpa": "",
+      "institution": "IES Azorín",
+      "studyType": "Técnico Superior",
+      "area": "Desarrollo de Aplicaciones Multiplataforma"
+    },
+    {
+      "location": "Elda, Alicante",
+      "startDate": "2013",
+      "endDate": "2014",
+      "gpa": "",
+      "institution": "Escuela Oficial de Idiomas",
+      "studyType": "Nivel B2",
+      "area": "Inglés"
+    }
+  ],
+  "projects": [
+    {
+      "name": "",
+      "description": "",
+      "url": "",
+      "keywords": [
+        ""
+      ]
+    }
+  ],
+  "awards": [
+    {
+      "title": "",
+      "date": "",
+      "awarder": "",
+      "summary": ""
+    }
+  ],
+  "sections": [
+    "skills",
+    "work",
+    "education",
+    "templates",
+    "profile",
+    "projects",
+    "awards"
+  ]
+}
