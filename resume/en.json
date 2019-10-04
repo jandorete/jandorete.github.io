@@ -1,0 +1,146 @@
+{
+  "selectedTemplate": 1,
+  "headings": {
+    "skills": "",
+    "projects": "",
+	"awards": "",
+	"education": "",
+	"Experience": ""
+  },
+  "basics": {
+    "email": "alejandroalarcon93@gmail.com",
+    "phone": "662158565",
+    "name": "Alejandro Alarcón Villena",
+    "website": "https://www.linkedin.com/in/alejandroalarcon/"
+  },
+  "skills": [
+    {
+      "name": "Experienced in",
+      "level": "",
+      "keywords": [
+		"PHP", "JavaScript", "Java (Android)", "SQL"
+      ]
+    },
+    {
+      "keywords": [
+		"Angular", "Node.js", "Java (back end)", "C++", "Oracle DB"
+      ],
+      "name": "Also comfortable with"
+    }
+  ],
+  "work": [
+    {
+      "location": "Petrer, Alicante",
+      "position": "Full Stack Web Developer",
+      "website": "",
+      "startDate": "February 2019",
+      "endDate": "Present day",
+      "highlights": [
+        "Design, development and support of websites and e-commerce tools.",
+        "Use of APIs such as eBay, Amazon and AliExpress",
+        "Main technologies: PHP, JavaScript, jQuery, MySQL, Git"
+      ],
+      "company": "OcioDual"
+    },
+    {
+      "location": "Pamplona",
+      "position": "C++ Developer",
+      "website": "",
+      "startDate": "January 2018",
+      "endDate": "July 2018",
+      "highlights": [
+        "Clinical videogame development for Windows.",
+        "Main technologies: Visual C++, Lua, Perforce"
+      ],
+      "company": "Davalor Salud"
+    },
+    {
+      "location": "Alicante",
+      "position": "App Developer",
+      "website": "",
+      "startDate": "January 2017",
+      "endDate": "December 2017",
+      "highlights": [
+        "Design, development and support of Android apps, websites and APIs.",
+        "Main technologies: Android, Java, PHP, JavaScript, jQuery, MySQL, Git"
+      ],
+      "company": "Xpro Developers"
+    },
+    {
+      "location": "Alicante",
+      "position": "Centers Technician",
+      "website": "",
+      "startDate": "January 2014",
+      "endDate": "September 2014",
+      "highlights": [
+        "Desarrollo y mantenimiento de sistemas informáticos para seguros. Insurance IT systems development and support.",
+        "Main technologies: PL/SQL, Oracle DB, Oracle Forms, Oracle Developer"
+      ],
+      "company": "everis"
+    },
+    {
+      "location": "Elda, Alicante",
+      "position": "Junior Web Developer",
+      "website": "",
+      "startDate": "Abril 2013",
+      "endDate": "Junio 2013",
+      "highlights": [
+        "Website development and support.",
+        "Main technologies: PHP, JavaScript, jQuery, MySQL"
+      ],
+      "company": "Adora Media"
+    },
+    {
+      "highlights": [
+        ""
+      ]
+    }
+  ],
+  "education": [
+    {
+      "location": "Petrer, Alicante",
+      "startDate": "September 2011",
+      "endDate": "June 2013",
+      "gpa": "",
+      "institution": "IES Azorín",
+      "studyType": "Certificate of Higher Education",
+      "area": "Multiplatform Application Development"
+    },
+    {
+      "location": "Elda, Alicante",
+      "startDate": "2013",
+      "endDate": "2014",
+      "gpa": "",
+      "institution": "Escuela Oficial de Idiomas",
+      "studyType": "B2",
+      "area": "English"
+    }
+  ],
+  "projects": [
+    {
+      "name": "",
+      "description": "",
+      "url": "",
+      "keywords": [
+        ""
+      ]
+    }
+  ],
+  "awards": [
+    {
+      "title": "",
+      "date": "",
+      "awarder": "",
+      "summary": ""
+    }
+  ],
+  "sections": [
+    "skills",
+    "work",
+    "education",
+    "templates",
+    "profile",
+    "projects",
+    "awards"
+  ]
+}
