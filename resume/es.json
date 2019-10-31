@@ -18,14 +18,20 @@
       "name": "Experimentado en",
       "level": "",
       "keywords": [
-		"PHP", "JavaScript", "Java (Android nativo)", "SQL"
+		"PHP", "JavaScript", "jQuery", "SQL"
       ]
     },
     {
       "keywords": [
-		"Angular", "Node.js", "Java (back end)", "C++", "Oracle"
+		"Angular", "Node.js", "Java", "Android", "C++", "PL/SQL"
       ],
-      "name": "También me manejo con"
+      "name": "También trabajo con"
+    },
+    {
+      "keywords": [
+		"VS Code", "Git", "MySQL", "Composer", "NPM"
+      ],
+      "name": "Herramientas habituales"
     }
   ],
   "work": [
@@ -38,7 +44,7 @@
       "highlights": [
         "Diseño, desarrollo y mantenimiento de sitios web y herramientas de e-commerce.",
         "Comunicación con APIs de eBay, Amazon, AliExpress, Cdiscount",
-        "Tecnologías principales: PHP, JavaScript, jQuery, MySQL, Git"
+        "PHP, JavaScript, jQuery, MySQL, Git"
       ],
       "company": "OcioDual"
     },
@@ -50,7 +56,7 @@
       "endDate": "Julio 2018",
       "highlights": [
         "Diseño, desarrollo y mantenimiento de videojuegos clínicos para Windows.",
-        "Tecnologías principales: Visual C++, Lua, Perforce"
+        "Visual C++, Lua, Perforce"
       ],
       "company": "Davalor Salud"
     },
@@ -62,7 +68,7 @@
       "endDate": "Diciembre 2017",
       "highlights": [
         "Diseño, desarrollo y mantenimiento de aplicaciones Android, web y APIs.",
-        "Tecnologías principales: Android, Java, PHP, JavaScript, jQuery, MySQL, Git"
+        "Android, Java, PHP, JavaScript, jQuery, MySQL, Git"
       ],
       "company": "Xpro Developers"
     },
@@ -74,7 +80,7 @@
       "endDate": "Septiembre 2014",
       "highlights": [
         "Desarrollo y mantenimiento de sistemas informáticos para seguros.",
-        "Tecnologías principales: PL/SQL, Oracle DB, Oracle Forms, Oracle Developer"
+        "PL/SQL, Oracle DB, Oracle Forms, Oracle Developer"
       ],
       "company": "everis"
     },
@@ -86,7 +92,7 @@
       "endDate": "Junio 2013",
       "highlights": [
         "Desarrollo y mantenimiento de sitios web.",
-        "Tecnologías principales: PHP, JavaScript, jQuery, MySQL"
+        "PHP, JavaScript, jQuery, MySQL"
       ],
       "company": "Adora Media"
     },
