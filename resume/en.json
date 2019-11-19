@@ -15,18 +15,18 @@
   },
   "skills": [
     {
-      "name": "Experienced in",
+      "name": "Experienced with",
       "level": "",
-      "keywords": [
-		"PHP", "JavaScript", "Java (Android)", "SQL"
-      ]
+      "keywords": ["PHP", "JavaScript", "jQuery", "SQL"]
     },
     {
-      "keywords": [
-		"Angular", "Node.js", "Java (back end)", "C++", "Oracle DB"
-      ],
-      "name": "Also comfortable with"
-    }
+      "keywords": ["Angular", "Node.js", "Java", "Android", "C++"],
+      "name": "I also work with"
+    },
+	{
+		"keywords": ["Clean Code", "SOLID", "TDD"],
+		"name": "Current interests"
+	}
   ],
   "work": [
     {
@@ -56,7 +56,7 @@
     },
     {
       "location": "Alicante",
-      "position": "App Developer",
+      "position": "Full Stack Developer",
       "website": "",
       "startDate": "January 2017",
       "endDate": "December 2017",
@@ -73,8 +73,8 @@
       "startDate": "January 2014",
       "endDate": "September 2014",
       "highlights": [
-        "Desarrollo y mantenimiento de sistemas informáticos para seguros. Insurance IT systems development and support.",
-        "Main technologies: PL/SQL, Oracle DB, Oracle Forms, Oracle Developer"
+		"Insurance IT systems development and support.",
+		"Main technologies: PL/SQL, Oracle DB, Oracle Forms, Oracle Developer"
       ],
       "company": "everis"
     },
@@ -112,7 +112,7 @@
       "endDate": "2014",
       "gpa": "",
       "institution": "Escuela Oficial de Idiomas",
-      "studyType": "B2",
+      "studyType": "Advanced (B2)",
       "area": "English"
     }
   ],
