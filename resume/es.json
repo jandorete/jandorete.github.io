@@ -81,6 +81,15 @@
 	],
 	"education": [
 		{
+			"location": "Alicante",
+			"startDate": "Septiembre 2014",
+			"endDate": "Julio 2016",
+			"gpa": "",
+			"institution": "Universidad de Alicante",
+			"studyType": "Grado",
+			"area": "Ingeniería Multimedia"
+		},
+		{
 			"location": "Petrer, Alicante",
 			"startDate": "Septiembre 2011",
 			"endDate": "Junio 2013",
