@@ -50,9 +50,9 @@
 			"startDate": "Enero 2020",
 			"endDate": "Actualidad",
 			"highlights": [
-				"Diseño, desarrollo y mantenimiento de aplicaciones web para el sector financiero.",
+				"Diseño, desarrollo y mantenimiento de aplicaciones y servicios web para el sector financiero.",
 				"Comunicación con cliente, gestión de proyectos, análisis de requisitos.",
-				"Tecnologías: Angular, jQuery, Java, Spring, .NET Core, MySQL, PostgreSQL, AWS, Azure DevOps"
+				"Angular, jQuery, Java, Glassfish, Spring, .NET Core, Entity Framework, MySQL, PostgreSQL, AWS, Azure DevOps"
 			],
 			"company": "mrHouston"
 		},
@@ -64,8 +64,8 @@
 			"endDate": "Diciembre 2019",
 			"highlights": [
 				"Diseño, desarrollo y mantenimiento de herramientas de e-commerce para marketplaces.",
-				"Comunicación con eBay, Amazon, AliExpress y Cdiscount mediante APIs y ficheros.",
-				"Tecnologías: PHP, JavaScript, jQuery, MySQL"
+				"Gestión de catálogos de eBay, Amazon, AliExpress y Cdiscount mediante APIs y ficheros.",
+				"PHP, JavaScript, jQuery, MySQL"
 			],
 			"company": "OcioDual"
 		},
@@ -77,7 +77,7 @@
 			"endDate": "Julio 2018",
 			"highlights": [
 				"Diseño, desarrollo y mantenimiento de videojuegos clínicos para Windows.",
-				"Tecnologías: Visual C++, Lua"
+				"Visual C++, Lua"
 			],
 			"company": "Davalor Salud"
 		},
@@ -89,7 +89,7 @@
 			"endDate": "Diciembre 2017",
 			"highlights": [
 				"Diseño, desarrollo y mantenimiento de aplicaciones Android y web.",
-				"Tecnologías: Android, Java, PHP, JavaScript, jQuery, MySQL"
+				"Android, Java, PHP, JavaScript, jQuery, MySQL"
 			],
 			"company": "Xpro Developers"
 		},
@@ -101,7 +101,7 @@
 			"endDate": "Septiembre 2014",
 			"highlights": [
 				"Desarrollo y mantenimiento de sistemas informáticos para seguros basados en Oracle.",
-				"Tecnologías: PL/SQL, Oracle DB, Oracle Forms, Oracle Developer"
+				"PL/SQL, Oracle DB, Oracle Forms, Oracle Developer"
 			],
 			"company": "everis"
 		},
@@ -113,7 +113,7 @@
 			"endDate": "Junio 2013",
 			"highlights": [
 				"Desarrollo y mantenimiento de sitios web.",
-				"Tecnologías: PHP, JavaScript, jQuery, MySQL"
+				"PHP, JavaScript, jQuery, MySQL"
 			],
 			"company": "Adora Media"
 		}
@@ -122,9 +122,9 @@
 		{
 			"name": "Front",
 			"keywords": [
-				"Angular 2+",
+				"Angular",
 				"jQuery",
-				"Plain Old JavaScript",
+				"Vanilla JavaScript",
 				"Android nativo"
 			]
 		},
@@ -147,18 +147,10 @@
 		{
 			"keywords": [
 				"AWS",
-				"Azure",
-				"Integración continua"
+				"Azure DevOps",
+				"CI/CD"
 			],
 			"name": "DevOps"
-		},
-		{
-			"keywords": [
-				"Comunicación con cliente",
-				"Análisis de requisitos",				
-				"Scrum"
-			],
-			"name": "Otros conocimientos"
 		}
 	],
 	"sections": [
