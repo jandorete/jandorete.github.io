@@ -1,161 +1,172 @@
 {
 	"selectedTemplate": 1,
 	"headings": {
-		"skills": "Principales conocimientos",
-		"projects": "",
-		"awards": "",
-		"education": "Estudios",
-		"work": "Experiencia laboral"
+	  "skills": "Principales conocimientos",
+	  "projects": "",
+	  "awards": "",
+	  "education": "Estudios",
+	  "work": "Experiencia laboral"
 	},
 	"basics": {
-		"email": "alejandroalarcon93@gmail.com",
-		"phone": "662 15 85 65",
-		"name": "Alejandro Alarcón Villena",
-		"website": "https://www.linkedin.com/in/alejandroalarcon/"
+	  "email": "alejandroalarcon93@gmail.com",
+	  "phone": "662 15 85 65",
+	  "name": "Alejandro Alarcón Villena",
+	  "website": "https://www.linkedin.com/in/alejandroalarcon/"
 	},
 	"education": [
-		{
-			"location": "Alicante",
-			"startDate": "Septiembre 2014",
-			"endDate": "Julio 2016",
-			"gpa": "",
-			"institution": "Universidad de Alicante",
-			"studyType": "Grado",
-			"area": "Ingeniería Multimedia"
-		},
-		{
-			"location": "Petrer, Alicante",
-			"startDate": "Septiembre 2011",
-			"endDate": "Junio 2013",
-			"gpa": "",
-			"institution": "IES Poeta Paco Mollá",
-			"studyType": "Técnico Superior",
-			"area": "Desarrollo de Aplicaciones Multiplataforma"
-		},
-		{
-			"location": "Elda, Alicante",
-			"startDate": "2013",
-			"endDate": "2014",
-			"gpa": "",
-			"institution": "Escuela Oficial de Idiomas",
-			"studyType": "Nivel B2",
-			"area": "Inglés"
-		}
+	  {
+		"location": "Alicante",
+		"startDate": "Septiembre 2014",
+		"endDate": "Julio 2016",
+		"gpa": "",
+		"institution": "Universidad de Alicante",
+		"studyType": "Grado",
+		"area": "Ingeniería Multimedia"
+	  },
+	  {
+		"location": "Petrer, Alicante",
+		"startDate": "Septiembre 2011",
+		"endDate": "Junio 2013",
+		"gpa": "",
+		"institution": "IES Poeta Paco Mollá",
+		"studyType": "Técnico Superior",
+		"area": "Desarrollo de Aplicaciones Multiplataforma"
+	  },
+	  {
+		"location": "Elda, Alicante",
+		"startDate": "2013",
+		"endDate": "2014",
+		"gpa": "",
+		"institution": "Escuela Oficial de Idiomas",
+		"studyType": "Nivel B2",
+		"area": "Inglés"
+	  }
 	],
 	"work": [
-		{
-			"location": "Madrid",
-			"position": "Desarrollador Full Stack",
-			"website": "",
-			"startDate": "Enero 2020",
-			"endDate": "Actualidad",
-			"highlights": [
-				"Diseño, desarrollo y mantenimiento de aplicaciones y servicios web para el sector financiero.",
-				"Comunicación con cliente, gestión de proyectos, análisis de requisitos.",
-				"Angular, jQuery, Java, Glassfish, Spring, .NET Core, Entity Framework, MySQL, PostgreSQL, AWS, Azure DevOps"
-			],
-			"company": "mrHouston"
-		},
-		{
-			"location": "Petrer, Alicante",
-			"position": "Desarrollador Full Stack",
-			"website": "",
-			"startDate": "Febrero 2019",
-			"endDate": "Diciembre 2019",
-			"highlights": [
-				"Diseño, desarrollo y mantenimiento de herramientas de e-commerce para marketplaces.",
-				"Gestión de catálogos de eBay, Amazon, AliExpress y Cdiscount mediante APIs y ficheros.",
-				"PHP, JavaScript, jQuery, MySQL"
-			],
-			"company": "OcioDual"
-		},
-		{
-			"location": "Pamplona",
-			"position": "Desarrollador C++",
-			"website": "",
-			"startDate": "Enero 2018",
-			"endDate": "Julio 2018",
-			"highlights": [
-				"Diseño, desarrollo y mantenimiento de videojuegos clínicos para Windows.",
-				"Visual C++, Lua"
-			],
-			"company": "Davalor Salud"
-		},
-		{
-			"location": "Alicante",
-			"position": "Desarrollador Full Stack",
-			"website": "",
-			"startDate": "Enero 2017",
-			"endDate": "Diciembre 2017",
-			"highlights": [
-				"Diseño, desarrollo y mantenimiento de aplicaciones Android y web.",
-				"Android, Java, PHP, JavaScript, jQuery, MySQL"
-			],
-			"company": "Xpro Developers"
-		},
-		{
-			"location": "Alicante",
-			"position": "Centers Technician",
-			"website": "",
-			"startDate": "Enero 2014",
-			"endDate": "Septiembre 2014",
-			"highlights": [
-				"Desarrollo y mantenimiento de sistemas informáticos para seguros basados en Oracle.",
-				"PL/SQL, Oracle DB, Oracle Forms, Oracle Developer"
-			],
-			"company": "everis"
-		},
-		{
-			"location": "Elda, Alicante",
-			"position": "Desarrollador web junior",
-			"website": "",
-			"startDate": "Abril 2013",
-			"endDate": "Junio 2013",
-			"highlights": [
-				"Desarrollo y mantenimiento de sitios web.",
-				"PHP, JavaScript, jQuery, MySQL"
-			],
-			"company": "Adora Media"
-		}
+	  {
+		"location": "Madrid",
+		"position": "Desarrollador Full Stack",
+		"website": "",
+		"startDate": "Enero 2020",
+		"endDate": "Actualidad",
+		"highlights": [
+		  "Diseño, desarrollo y mantenimiento de aplicaciones y servicios web para el sector financiero",
+		  "Comunicación con cliente, gestión de proyectos, análisis de requisitos",
+		  "Angular, jQuery / Java, Glassfish, Spring / .NET Core, Entity Framework / MySQL, PostgreSQL / AWS, Azure DevOps"
+		],
+		"company": "mrHouston"
+	  },
+	  {
+		"location": "Alicante",
+		"position": "Desarrollador Full Stack",
+		"website": "",
+		"startDate": "Febrero 2019",
+		"endDate": "Diciembre 2019",
+		"highlights": [
+		  "Diseño, desarrollo y mantenimiento de herramientas de e-commerce para marketplaces",
+		  "Gestión de catálogos de eBay, Amazon, AliExpress y Cdiscount mediante APIs y ficheros",
+		  "PHP, JavaScript, jQuery, MySQL"
+		],
+		"company": "OcioDual"
+	  },
+	  {
+		"location": "Pamplona",
+		"position": "Desarrollador C++",
+		"website": "",
+		"startDate": "Enero 2018",
+		"endDate": "Julio 2018",
+		"highlights": [
+		  "Diseño, desarrollo y mantenimiento de videojuegos clínicos para Windows",
+		  "Visual C++, Lua"
+		],
+		"company": "Davalor Salud"
+	  },
+	  {
+		"location": "Alicante",
+		"position": "Desarrollador Full Stack",
+		"website": "",
+		"startDate": "Enero 2017",
+		"endDate": "Diciembre 2017",
+		"highlights": [
+		  "Diseño, desarrollo y mantenimiento de aplicaciones Android y web",
+		  "Android, Java, PHP, jQuery, MySQL"
+		],
+		"company": "Xpro Developers"
+	  },
+	  {
+		"location": "Alicante",
+		"position": "Centers Technician",
+		"website": "",
+		"startDate": "Enero 2014",
+		"endDate": "Septiembre 2014",
+		"highlights": [
+		  "Desarrollo y mantenimiento de sistemas informáticos para seguros basados en Oracle",
+		  "PL/SQL, Oracle DB, Oracle Forms, Oracle Developer"
+		],
+		"company": "everis"
+	  },
+	  {
+		"location": "Alicante",
+		"position": "Desarrollador web junior",
+		"website": "",
+		"startDate": "Abril 2013",
+		"endDate": "Junio 2013",
+		"highlights": [
+		  "Desarrollo y mantenimiento de sitios web",
+		  "PHP, jQuery, MySQL"
+		],
+		"company": "Adora Media"
+	  }
 	],
 	"skills": [
-		{
-			"name": "Front",
-			"keywords": [
-				"Angular",
-				"jQuery",
-				"Vanilla JavaScript",
-				"Android nativo"
-			]
-		},
-		{
-			"keywords": [
-				"Java (Glassfish/EE, Spring)",
-				"Node.js (Express)",
-				"PHP (Laravel, Symphony)"
-			],
-			"name": "Back"
-		},
-		{
-			"keywords": [
-				"MySQL",
-				"PostgreSQL",
-				"MongoDB"
-			],
-			"name": "Persistencia"
-		},
-		{
-			"keywords": [
-				"AWS",
-				"Azure DevOps",
-				"CI/CD"
-			],
-			"name": "DevOps"
-		}
+	  {
+		"name": "Front",
+		"keywords": [
+		  "Angular",
+		  "jQuery",
+		  "Android nativo"
+		]
+	  },
+	  {
+		"keywords": [
+		  "Java (Glassfish/EE, Spring)",
+		  ".NET (Core, Entity Framework)",
+		  "PHP",
+		  "Node.js"
+		],
+		"name": "Back"
+	  },
+	  {
+		"keywords": [
+		  "MySQL",
+		  "PostgreSQL",
+		  "MongoDB"
+		],
+		"name": "Persistencia"
+	  },
+	  {
+		"keywords": [
+		  "AWS",
+		  "Azure DevOps (repos, pipelines)"
+		],
+		"name": "DevOps"
+	  }
 	],
+	"projects": [
+	  {
+		"keywords": [
+		  ""
+		]
+	  }
+	],
+	"awards": [],
 	"sections": [
-		"skills",
-		"work",
-		"education"
+	  "templates",
+	  "profile",
+	  "skills",
+	  "work",
+	  "education",
+	  "projects",
+	  "awards"
 	]
-}
+  }
