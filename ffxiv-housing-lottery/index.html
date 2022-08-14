@@ -27,7 +27,7 @@
         while (currentDate.isBefore(endDate)) {
             startPeriod = moment(currentDate);
             endPeriod = moment(currentDate).add(5, 'days');
-            newItem = { id: i++, name: 'Entry period', startDate: startPeriod.toDate(), endDate: endPeriod.toDate() };
+            newItem = { id: i++, name: 'Entry period', startDate: startPeriod.toDate(), endDate: endPeriod.toDate(), color: 'blue' };
 
             if (endPeriod.isAfter(moment())) {
                 dataSource.push(newItem);
@@ -35,7 +35,7 @@
 
             startPeriod = moment(endPeriod);
             endPeriod = moment(endPeriod).add(4, 'days');
-            newItem = { id: i++, name: 'Results period', startDate: startPeriod.toDate(), endDate: endPeriod.toDate() };
+            newItem = { id: i++, name: 'Results period', startDate: startPeriod.toDate(), endDate: endPeriod.toDate(), color: 'orange' };
 
             if (endPeriod.isAfter(moment())) {
                 dataSource.push(newItem);
@@ -46,7 +46,6 @@
     
         calendar = new Calendar('#calendar', { 
             dataSource: dataSource,
-            style: 'background',
             mouseOnDay: function(e) {
                 if(e.events.length > 0) {
                     var content = '';
