@@ -4,6 +4,10 @@
 			body {
 				background-color: darkgray;
 			}
+			
+			table, td, th {
+				border: 1px solid;
+			}
 		</style>
 		<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 	</head>
@@ -11,13 +15,19 @@
 		<input type="text" id="itemId">
 		<input type="text" id="world">
 		<input type="text" id="region">
-		<div>
-			<div class="recipe">
-				<img id="recipe-image">
-				<p id="recipe-name"></p>
-			</div>
-			<ul id="ingredient-list"></ul>
-		</div>
+
+		<table id="data-table">
+			<tr>
+				<td>Image</td>
+				<td>Name</td>
+				<td>Amount</td>
+				<td>Cheapest current price NQ (region)</td>
+				<td>Cheapest current price HQ (region)</td>
+				<td>Latest sale price NQ (world)</td>
+				<td>Latest sale price HQ (world)</td>
+			</tr>
+		</table>
+		
 		<div id="error" style="color: red;"></div>
 	</body>
 </html>
@@ -35,49 +45,83 @@ $("#itemId").change(() => {
 });
 
 async function init() {
-	const error = $("#error");	
+	const error = $("#error");
 	const itemId = $("#itemId").val();
 	const world = $("#world").val();
 	const region = $("#region").val();
 
-	error.html = "";
+	error.html("");
 
 	try {
 		const item = await fetchItem(itemId);
 		console.log(item);
-		drawItem(item);
+		
+		const recipe = await fetchRecipe(item.Recipes[0].ID);
+		console.log(recipe);
 
-		const ingredients = await fetchRecipe(item.Recipes[0].ID);
+		const marketData = await fetchMarketDataForItem(region, itemId);
+		console.log(marketData);
+
+		let minListingNQ = marketData.listings
+			.filter((listing) => listing.hq === false)
+			.reduce((previous, current) => current.pricePerUnit < previous.pricePerUnit ? current : previous);
+
+		let minListingHQ = marketData.listings
+			.filter((listing) => listing.hq === true)
+			.reduce((previous, current) => current.pricePerUnit < previous.pricePerUnit ? current : previous);
+
+		let row = { item, recipe, minListingHQ, minListingNQ };
+		console.log(row);
+
+		drawItem(row);
+		
+		let ingredients = [];
+
+		if (recipe.AmountResult) {
+			let ingredientAmount = 0;
+			let checking = true;
+
+			while (checking) {
+				if (recipe["AmountIngredient" + ingredientAmount] === undefined) {
+					checking = false;
+				} else if (recipe["AmountIngredient" + ingredientAmount]) {
+					ingredients.push({ amount: recipe["AmountIngredient" + ingredientAmount], item: recipe["ItemIngredient" + ingredientAmount] });
+				}
+
+				ingredientAmount++;
+			}
+		} else {
+			throw new Error("Item is not a recipe.");
+		}
+		
 		console.log(ingredients);
-		drawIngredients(ingredients);
-	} catch (error) {
-		error.html = error;
+		ingredients.forEach((item) => drawItem(item));
+	} catch (ex) {
+		error.html(ex);
 	}
 }
 
 function drawItem(item) {
-	$("#recipe-image").prop("src", "https://xivapi.com/" + item.Icon);
-	$("#recipe-name").text(item.Name);
-}
-
-function drawIngredients(ingredients) {
-	const ingredientList = $("#ingredient-list");
 	let html = "";
 
-	for (ingredient of ingredients) {
-		html += "<img src=\"" + "https://xivapi.com/" + ingredient.Icon + "\">";
-		html += "<p>" + ingredient.Name + "</p>";
-	}
+	html += "<tr>";
+	html += "<td><img src=\"" + "https://xivapi.com/" + item.item.Icon + "\"></td>";
+	html += "<td>" + item.item.Name + "</td>";
+	html += "<td>" + item.recipe.AmountResult + "</td>";
+	html += "<td>" + item.minListingNQ + "</td>";
+	html += "<td>" + item.minListingHQ + "</td>";
+	html += "<td></td>";
+	html += "<td></td>";
+	html += "</tr>";
 
-	ingredientList.html(html);
+	$("#data-table").append(html);
 }
 
-function drawPriceTable() {
-
-}
-
-function fetchMarketDataForItem(itemId) {
-	$.get("https://universalis.app/api/v2/europe/26782")
+function fetchMarketDataForItem(region, itemId) {
+	return $.get("https://universalis.app/api/v2/" + region + "/" + itemId, (data) => data)
+	.fail((error) => {
+		throw new Error(error.Message);
+	});
 }
 
 function fetchItem(itemId) {
@@ -93,30 +137,10 @@ function fetchItem(itemId) {
 	});
 }
 
-async function fetchRecipe(recipeId) {
-	let ingredients = [];
-
-	await $.get("https://xivapi.com/recipe/" + recipeId, (recipe) => {
-		if (recipe.AmountResult) {
-			let ingredientAmount = 0;
-			let checking = true;
-
-			while (checking) {
-				if (recipe["AmountIngredient" + ingredientAmount]) {
-					ingredients.push(recipe["ItemIngredient" + ingredientAmount]);
-					ingredientAmount++;
-				} else {
-					checking = false;
-				}
-			}
-		} else {
-			throw new Error("Item is not a recipe.");
-		}
-	})
+function fetchRecipe(recipeId) {
+	return $.get("https://xivapi.com/recipe/" + recipeId, (recipe) => recipe)
 	.fail((error) => {
 		throw new Error(error.Message);
 	});
-
-	return ingredients;
 }
 </script>
