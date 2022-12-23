@@ -1,0 +1,122 @@
+<html>
+	<head>
+		<style>
+			body {
+				background-color: darkgray;
+			}
+		</style>
+		<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<input type="text" id="itemId">
+		<input type="text" id="world">
+		<input type="text" id="region">
+		<div>
+			<div class="recipe">
+				<img id="recipe-image">
+				<p id="recipe-name"></p>
+			</div>
+			<ul id="ingredient-list"></ul>
+		</div>
+		<div id="error" style="color: red;"></div>
+	</body>
+</html>
+
+<script>
+$(document).ready(() => {
+	$("#itemId").val(26782);
+	$("#world").val("Louisoix");
+	$("#region").val("Europe");
+	init();
+});
+
+$("#itemId").change(() => {
+	init();
+});
+
+async function init() {
+	const error = $("#error");	
+	const itemId = $("#itemId").val();
+	const world = $("#world").val();
+	const region = $("#region").val();
+
+	error.html = "";
+
+	try {
+		const item = await fetchItem(itemId);
+		console.log(item);
+		drawItem(item);
+
+		const ingredients = await fetchRecipe(item.Recipes[0].ID);
+		console.log(ingredients);
+		drawIngredients(ingredients);
+	} catch (error) {
+		error.html = error;
+	}
+}
+
+function drawItem(item) {
+	$("#recipe-image").prop("src", "https://xivapi.com/" + item.Icon);
+	$("#recipe-name").text(item.Name);
+}
+
+function drawIngredients(ingredients) {
+	const ingredientList = $("#ingredient-list");
+	let html = "";
+
+	for (ingredient of ingredients) {
+		html += "<img src=\"" + "https://xivapi.com/" + ingredient.Icon + "\">";
+		html += "<p>" + ingredient.Name + "</p>";
+	}
+
+	ingredientList.html(html);
+}
+
+function drawPriceTable() {
+
+}
+
+function fetchMarketDataForItem(itemId) {
+	$.get("https://universalis.app/api/v2/europe/26782")
+}
+
+function fetchItem(itemId) {
+	return $.get("https://xivapi.com/item/" + itemId, (item) => {
+		if (item.Recipes) {
+			return item;
+		} else {
+			throw new Error("Item is not a recipe.");
+		}
+	})
+	.fail((error) => {
+		throw new Error(error.Message);
+	});
+}
+
+async function fetchRecipe(recipeId) {
+	let ingredients = [];
+
+	await $.get("https://xivapi.com/recipe/" + recipeId, (recipe) => {
+		if (recipe.AmountResult) {
+			let ingredientAmount = 0;
+			let checking = true;
+
+			while (checking) {
+				if (recipe["AmountIngredient" + ingredientAmount]) {
+					ingredients.push(recipe["ItemIngredient" + ingredientAmount]);
+					ingredientAmount++;
+				} else {
+					checking = false;
+				}
+			}
+		} else {
+			throw new Error("Item is not a recipe.");
+		}
+	})
+	.fail((error) => {
+		throw new Error(error.Message);
+	});
+
+	return ingredients;
+}
+</script>
