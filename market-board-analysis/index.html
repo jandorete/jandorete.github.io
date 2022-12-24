@@ -120,8 +120,8 @@ async function init() {
 function calculateItemMargins(item) {
 	item["flippingNQ"] = item.averagePriceNQ - item.minListingNQ.pricePerUnit;
 	item["flippingHQ"] = item.averagePriceHQ - item.minListingHQ.pricePerUnit;
-	item["flippingNQPercent"] = (item["flippingNQ"] / item.averagePriceNQ) * 100;
-	item["flippingHQPercent"] = (item["flippingHQ"] / item.averagePriceHQ) * 100;
+	item["flippingNQPercent"] = (item["flippingNQ"] / item.minListingNQ.pricePerUnit) * 100;
+	item["flippingHQPercent"] = (item["flippingHQ"] / item.minListingHQ.pricePerUnit) * 100;
 
 	return item;
 }
@@ -146,8 +146,8 @@ function calculateRecipeMargins(item, ingredients) {
 	profitMarginNQ = item.averagePriceNQ - ingredientTotalNQ;
 	profitMarginHQ = item.averagePriceHQ - ingredientTotalHQ;
 
-	profitMarginNQPercentage = (profitMarginNQ / item.averagePriceNQ) * 100;
-	profitMarginHQPercentage = (profitMarginHQ / item.averagePriceHQ) * 100;
+	profitMarginNQPercentage = (profitMarginNQ / ingredientTotalNQ) * 100;
+	profitMarginHQPercentage = (profitMarginHQ / ingredientTotalHQ) * 100;
 
 	return { ingredientTotalNQ, ingredientTotalHQ, profitMarginNQ, profitMarginHQ, profitMarginNQPercentage, profitMarginHQPercentage };
 }
