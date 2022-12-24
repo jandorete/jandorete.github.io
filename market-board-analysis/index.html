@@ -15,7 +15,7 @@
 		<input type="text" id="itemId">
 		<input type="text" id="world">
 		<input type="text" id="region">
-
+		<br>
 		<table id="data-table">
 			<thead>
 				<tr>
@@ -28,6 +28,20 @@
 					<td>World</td>
 					<td>Average sale price NQ (world)</td>
 					<td>Average sale price HQ (world)</td>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+		<br>
+		<table id="margin-table">
+			<thead>
+				<tr>
+					<td>Total ingredient cost NQ</td>
+					<td>Total ingredient cost HQ</td>
+					<td>NQ Cost - Average Price NQ</td>
+					<td>Profit margin NQ</td>
+					<td>HQ Cost - Average Price HQ</td>
+					<td>Profit margin HQ</td>
 				</tr>
 			</thead>
 			<tbody></tbody>
@@ -87,13 +101,45 @@ async function init() {
 			throw new Error("Item is not a recipe.");
 		}
 
+		let processedIngredients = [];
+
 		for (ingredient of ingredients) {
-			ingredient = { amount: ingredient.amount, ...await calculatePrices(ingredient, region, world) };
-			drawItemRow(ingredient);
+			let newIngredient = { amount: ingredient.amount, ...await calculatePrices(ingredient, region, world) };
+			processedIngredients.push(newIngredient);
+			drawItemRow(newIngredient);
 		}
+
+		let margins = calculateMargins(item, processedIngredients);
+		drawMarginRow(margins);
 	} catch (ex) {
 		error.html(ex);
 	}
+}
+
+function calculateMargins(item, ingredients) {
+	let ingredientTotalNQ;
+	let ingredientTotalHQ;
+	let profitMarginNQ;
+	let profitMarginNQPercentage;
+	let profitMarginHQ;
+	let profitMarginHQPercentage;
+
+	ingredientTotalNQ = ingredients.reduce((value, ingredient) => value + (ingredient.minListingNQ.pricePerUnit * ingredient.amount), 0);
+	ingredientTotalHQ = ingredients.reduce((value, ingredient) => {
+		if (ingredient.minListingHQ.pricePerUnit) {
+			return value + (ingredient.minListingHQ.pricePerUnit * ingredient.amount)
+		} else {
+			return value + (ingredient.minListingNQ.pricePerUnit * ingredient.amount)
+		}
+	}, 0);
+
+	profitMarginNQ = item.averagePriceNQ - ingredientTotalNQ;
+	profitMarginHQ = item.averagePriceHQ - ingredientTotalHQ;
+
+	profitMarginNQPercentage = (profitMarginNQ / item.averagePriceNQ) * 100;
+	profitMarginHQPercentage = (profitMarginHQ / item.averagePriceHQ) * 100;
+
+	return { ingredientTotalNQ, ingredientTotalHQ, profitMarginNQ, profitMarginHQ, profitMarginNQPercentage, profitMarginHQPercentage };
 }
 
 async function calculatePrices(item, region, world) {
@@ -146,7 +192,23 @@ function drawItemRow(item) {
 	html += "<td>" + new Intl.NumberFormat().format(item.averagePriceHQ) + "</td>";
 	html += "</tr>";
 
-	$("#data-table").append(html);
+	$("#data-table tbody").append(html);
+}
+
+function drawMarginRow(margin) {
+	
+	let html = "";
+
+	html += "<tr>";
+	html += "<td>" + new Intl.NumberFormat().format(margin.ingredientTotalNQ) + "</td>";
+	html += "<td>" + new Intl.NumberFormat().format(margin.ingredientTotalHQ) + "</td>";
+	html += "<td>" + new Intl.NumberFormat().format(margin.profitMarginNQ) + "</td>";
+	html += "<td>" + new Intl.NumberFormat().format(margin.profitMarginNQPercentage) + "%</td>";
+	html += "<td>" + new Intl.NumberFormat().format(margin.profitMarginHQ) + "</td>";
+	html += "<td>" + new Intl.NumberFormat().format(margin.profitMarginHQPercentage) + "%</td>";
+	html += "</tr>";
+
+	$("#margin-table tbody").append(html);
 }
 
 function fetchMarketDataForItem(region, itemId) {
