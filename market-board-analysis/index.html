@@ -143,8 +143,8 @@ function calculateRecipeMargins(item, ingredients) {
 		}
 	}, 0);
 
-	profitMarginNQ = item.averagePriceNQ - ingredientTotalNQ;
-	profitMarginHQ = item.averagePriceHQ - ingredientTotalHQ;
+	profitMarginNQ = (item.averagePriceNQ - ingredientTotalNQ) * item.amount;
+	profitMarginHQ = (item.averagePriceHQ - ingredientTotalHQ) * item.amount;
 
 	profitMarginNQPercentage = (profitMarginNQ / ingredientTotalNQ) * 100;
 	profitMarginHQPercentage = (profitMarginHQ / ingredientTotalHQ) * 100;
