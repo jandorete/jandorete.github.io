@@ -40,9 +40,9 @@
 			<thead>
 				<tr>
 					<th>Total ingredient cost NQ</th>
-					<th>Total ingredient cost HQ</th>
 					<th>NQ Average Price - Cost</th>
 					<th>Profit margin NQ</th>
+					<th>Total ingredient cost HQ</th>
 					<th>HQ Average Price - Cost</th>
 					<th>Profit margin HQ</th>
 				</tr>
@@ -143,8 +143,8 @@ function calculateRecipeMargins(item, ingredients) {
 		}
 	}, 0);
 
-	profitMarginNQ = (item.averagePriceNQ - ingredientTotalNQ) * item.amount;
-	profitMarginHQ = (item.averagePriceHQ - ingredientTotalHQ) * item.amount;
+	profitMarginNQ = item.averagePriceNQ * item.amount - ingredientTotalNQ;
+	profitMarginHQ = item.averagePriceHQ * item.amount- ingredientTotalHQ;
 
 	profitMarginNQPercentage = (profitMarginNQ / ingredientTotalNQ) * 100;
 	profitMarginHQPercentage = (profitMarginHQ / ingredientTotalHQ) * 100;
@@ -216,9 +216,9 @@ function drawMarginRow(margin) {
 
 	html += "<tr>";
 	html += "<td>" + new Intl.NumberFormat().format(margin.ingredientTotalNQ) + "</td>";
-	html += "<td>" + new Intl.NumberFormat().format(margin.ingredientTotalHQ) + "</td>";
 	html += "<td>" + new Intl.NumberFormat().format(margin.profitMarginNQ) + "</td>";
 	html += "<td>" + new Intl.NumberFormat().format(margin.profitMarginNQPercentage) + "%</td>";
+	html += "<td>" + new Intl.NumberFormat().format(margin.ingredientTotalHQ) + "</td>";
 
 	if (margin.profitMarginHQ) {
 		html += "<td>" + new Intl.NumberFormat().format(margin.profitMarginHQ) + "</td>";
