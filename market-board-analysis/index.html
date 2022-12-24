@@ -20,15 +20,17 @@
 		<table id="data-table">
 			<thead>
 				<tr>
-					<td>Image</td>
-					<td>Name</td>
-					<td>Amount</td>
-					<td>Cheapest current price per unit NQ (region)</td>
-					<td>World</td>
-					<td>Cheapest current price per unit HQ (region)</td>
-					<td>World</td>
-					<td>Average sale price NQ (world)</td>
-					<td>Average sale price HQ (world)</td>
+					<th>Image</th>
+					<th>Name</th>
+					<th>Amount</th>
+					<th>Cheapest current price per unit NQ (region)</th>
+					<th>Average sale price NQ (world)</th>
+					<th>Flipping profit NQ</th>
+					<th>Flipping profit margin NQ</th>
+					<th>Cheapest current price per unit HQ (region)</th>
+					<th>Average sale price HQ (world)</th>
+					<th>Flipping profit HQ</th>
+					<th>Flipping profit margin HQ</th>
 				</tr>
 			</thead>
 			<tbody></tbody>
@@ -37,12 +39,12 @@
 		<table id="margin-table">
 			<thead>
 				<tr>
-					<td>Total ingredient cost NQ</td>
-					<td>Total ingredient cost HQ</td>
-					<td>NQ Cost - Average Price NQ</td>
-					<td>Profit margin NQ</td>
-					<td>HQ Cost - Average Price HQ</td>
-					<td>Profit margin HQ</td>
+					<th>Total ingredient cost NQ</th>
+					<th>Total ingredient cost HQ</th>
+					<th>NQ Cost - Average Price NQ</th>
+					<th>Profit margin NQ</th>
+					<th>HQ Cost - Average Price HQ</th>
+					<th>Profit margin HQ</th>
 				</tr>
 			</thead>
 			<tbody></tbody>
@@ -73,50 +75,58 @@ async function init() {
 	error.html("");
 	table.html("");
 
-	try {
-		let item = await fetchCraftedItem(itemId);
-		
-		const recipe = await fetchRecipe(item.Recipes[0].ID);
+	let item = await fetchCraftedItem(itemId);
+	
+	const recipe = await fetchRecipe(item.Recipes[0].ID);
 
-		item = await calculatePrices(item, region, world);
-		item["amount"] = recipe.AmountResult;
+	item = await calculatePrices(item, region, world);
+	item["amount"] = recipe.AmountResult;
+	item = calculateItemMargins(item);
 
-		drawItemRow(item);
-		
-		let ingredients = [];
-		if (recipe.AmountResult) {
-			let ingredientAmount = 0;
-			let checking = true;
+	drawItemRow(item);
+	
+	let ingredients = [];
+	if (recipe.AmountResult) {
+		let ingredientAmount = 0;
+		let checking = true;
 
-			while (checking) {
-				if (recipe["AmountIngredient" + ingredientAmount] === undefined) {
-					checking = false;
-				} else if (recipe["AmountIngredient" + ingredientAmount]) {
-					ingredients.push({ amount: recipe["AmountIngredient" + ingredientAmount], ...recipe["ItemIngredient" + ingredientAmount] });
-				}
-
-				ingredientAmount++;
+		while (checking) {
+			if (recipe["AmountIngredient" + ingredientAmount] === undefined) {
+				checking = false;
+			} else if (recipe["AmountIngredient" + ingredientAmount]) {
+				ingredients.push({ amount: recipe["AmountIngredient" + ingredientAmount], ...recipe["ItemIngredient" + ingredientAmount] });
 			}
-		} else {
-			throw new Error("Item is not a recipe.");
+
+			ingredientAmount++;
 		}
-
-		let processedIngredients = [];
-
-		for (ingredient of ingredients) {
-			let newIngredient = { amount: ingredient.amount, ...await calculatePrices(ingredient, region, world) };
-			processedIngredients.push(newIngredient);
-			drawItemRow(newIngredient);
-		}
-
-		let margins = calculateMargins(item, processedIngredients);
-		drawMarginRow(margins);
-	} catch (ex) {
-		error.html(ex);
+	} else {
+		throw new Error("Item is not a recipe.");
 	}
+
+	let processedIngredients = [];
+
+	for (ingredient of ingredients) {
+		let newIngredient = await calculatePrices(ingredient, region, world);
+		newIngredient["amount"] = ingredient.amount;
+		newIngredient = calculateItemMargins(newIngredient);
+		processedIngredients.push(newIngredient);
+		drawItemRow(newIngredient);
+	}
+
+	let margins = calculateRecipeMargins(item, processedIngredients);
+	drawMarginRow(margins);
 }
 
-function calculateMargins(item, ingredients) {
+function calculateItemMargins(item) {
+	item["flippingNQ"] = item.averagePriceNQ - item.minListingNQ.pricePerUnit;
+	item["flippingHQ"] = item.averagePriceHQ - item.minListingHQ.pricePerUnit;
+	item["flippingNQPercent"] = (item["flippingNQ"] / item.averagePriceNQ) * 100;
+	item["flippingHQPercent"] = (item["flippingHQ"] / item.averagePriceHQ) * 100;
+
+	return item;
+}
+
+function calculateRecipeMargins(item, ingredients) {
 	let ingredientTotalNQ;
 	let ingredientTotalHQ;
 	let profitMarginNQ;
@@ -181,17 +191,22 @@ function drawItemRow(item) {
 	let html = "";
 
 	html += "<tr>";
-	html += "<td><img src=\"" + "https://xivapi.com/" + item.item.Icon + "\"></td>";
+	html += "<td><img src=\"" + "https://xivapi.com" + item.item.Icon + "\"></td>";
 	html += "<td>" + item.item.Name + "</td>";
 	html += "<td>" + item.amount + "</td>";
-	html += "<td>" + new Intl.NumberFormat().format(item.minListingNQ.pricePerUnit) + "</td>";
-	html += "<td>" + item.minListingNQ.worldName + "</td>";
-	html += "<td>" + new Intl.NumberFormat().format(item.minListingHQ.pricePerUnit) + "</td>";
-	html += "<td>" + item.minListingHQ.worldName + "</td>";
+	html += "<td>" + new Intl.NumberFormat().format(item.minListingNQ.pricePerUnit) + " (" + item.minListingNQ.worldName + ")</td>";
 	html += "<td>" + new Intl.NumberFormat().format(item.averagePriceNQ) + "</td>";
-	html += "<td>" + new Intl.NumberFormat().format(item.averagePriceHQ) + "</td>";
-	html += "</tr>";
+	html += "<td>" + new Intl.NumberFormat().format(item.flippingNQ) + "</td>";
+	html += "<td>" + new Intl.NumberFormat().format(item.flippingNQPercent) + "%</td>";
 
+	if (item.minListingHQ.pricePerUnit) {
+		html += "<td>" + new Intl.NumberFormat().format(item.minListingHQ.pricePerUnit) + " (" + item.minListingHQ.worldName + ")</td>";
+		html += "<td>" + new Intl.NumberFormat().format(item.averagePriceHQ) + "</td>";
+		html += "<td>" + new Intl.NumberFormat().format(item.flippingHQ) + "</td>";
+		html += "<td>" + new Intl.NumberFormat().format(item.flippingHQPercent) + "%</td>";
+	}
+
+	html += "</tr>";
 	$("#data-table tbody").append(html);
 }
 
@@ -204,10 +219,13 @@ function drawMarginRow(margin) {
 	html += "<td>" + new Intl.NumberFormat().format(margin.ingredientTotalHQ) + "</td>";
 	html += "<td>" + new Intl.NumberFormat().format(margin.profitMarginNQ) + "</td>";
 	html += "<td>" + new Intl.NumberFormat().format(margin.profitMarginNQPercentage) + "%</td>";
-	html += "<td>" + new Intl.NumberFormat().format(margin.profitMarginHQ) + "</td>";
-	html += "<td>" + new Intl.NumberFormat().format(margin.profitMarginHQPercentage) + "%</td>";
-	html += "</tr>";
 
+	if (margin.profitMarginHQ) {
+		html += "<td>" + new Intl.NumberFormat().format(margin.profitMarginHQ) + "</td>";
+		html += "<td>" + new Intl.NumberFormat().format(margin.profitMarginHQPercentage) + "%</td>";
+	}
+
+	html += "</tr>";
 	$("#margin-table tbody").append(html);
 }
 
