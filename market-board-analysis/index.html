@@ -15,6 +15,7 @@
 		<input type="text" id="itemId">
 		<input type="text" id="world">
 		<input type="text" id="region">
+		<button type="button">Calculate</button>
 		<br>
 		<table id="data-table">
 			<thead>
@@ -56,10 +57,9 @@ $(document).ready(() => {
 	$("#itemId").val(26782);
 	$("#world").val("Louisoix");
 	$("#region").val("Europe");
-	init();
 });
 
-$("#itemId").change(() => {
+$("button").click(() => {
 	init();
 });
 
