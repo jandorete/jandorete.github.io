@@ -192,7 +192,7 @@ function drawItemRow(item) {
 
 	html += "<tr>";
 	html += "<td><img src=\"" + "https://xivapi.com" + item.item.Icon + "\"></td>";
-	html += "<td>" + item.item.Name + "</td>";
+	html += "<td><a target=\"_blank\" href=\"https://universalis.app/market/" + item.item.ID + "\">" + item.item.Name + "</td>";
 	html += "<td>" + item.amount + "</td>";
 	html += "<td>" + new Intl.NumberFormat().format(item.minListingNQ.pricePerUnit) + " (" + item.minListingNQ.worldName + ")</td>";
 	html += "<td>" + new Intl.NumberFormat().format(item.averagePriceNQ) + "</td>";
