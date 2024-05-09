@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Wavu Wank Parser</title>
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@^3"></script>
+        <script src="https://cdn.jsdelivr.net/npm/moment@^2"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@^1"></script>
+    </head>
+    <body class="bg-black text-white container mx-auto">
+        <header class="my-10 text-center">
+            <h1 class="text-2xl"><a href="index.html">Wavu Wank Parser</a></h1>
+        </header>
+        <div id="container">
+            <div class="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4">
+                <div class="shrink-0">
+                  <img class="h-12 w-12" src="" alt="">
+                </div>
+                <div>
+                  <h2 id="header-character" class="text-xl font-medium text-black"></h2>
+                  <p id="header-player" class="text-slate-500"></p>
+                  <p id="header-rating" class="text-slate-500"></p>
+                </div>
+            </div>
+            <h2 class="text-xl mt-10 text-center">Character History</h2>
+            <canvas id="canvas-history"></canvas>
+        </div>
+    </body>
+    <script type="text/javascript" src="player-profile.js"></script>
+</html>
