@@ -4,9 +4,10 @@ let playerName;
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
 const char = urlParams.get('char');
+const url = 'https://wank.wavu.wiki/player/' + id + "/" + char;
 
 async function requestPlayerData() {
-    return fetch('https://corsproxy.io/?https://wank.wavu.wiki/player/' + id + "/" + char, {
+    return fetch('https://corsproxy.io/?' + url, {
         method: 'GET',
         mode: 'cors',
         headers: {
@@ -64,7 +65,6 @@ function parseReplays(replaysTable) {
 function processPlayerData() {
     const data = [];
     const groupedReplays = Object.groupBy(replays, ({ date }) => date);
-    groupedReplays[moment().format('YYYY-MM-DD')] = [{ date: moment().format('YYYY-MM-DD'), rating: getCurrentCharacter().rating }];
 
     Object.keys(groupedReplays).forEach(key => {
         data.push({ x: key, y: Math.max(...groupedReplays[key].map(replay => parseInt(replay.rating))) });
@@ -113,7 +113,8 @@ function processPlayerData() {
 function displayCharacterData() {
     document.getElementById('header-player').innerText = playerName;
     document.getElementById('header-character').innerText = getCurrentCharacter().name;
-    document.getElementById('header-rating').innerText = "Rating: " + getCurrentCharacter().rating;
+    document.getElementById('header-rating').innerText = "Current Rating: " + getCurrentCharacter().rating;
+    document.getElementById('anchor-source').href = url;
 }
 
 requestPlayerData()
